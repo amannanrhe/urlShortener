@@ -6,6 +6,9 @@ App to provide shortened urls and redirect users
 Run the following command to set the node version. Node 11.0.0 was used during development:
 `nvm use`
 
+Run the following command to install dependencies:
+`npm run install`
+
 Run this command to build client files and start node server on port 9000:
 `npm run serve`
 
