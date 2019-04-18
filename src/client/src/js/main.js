@@ -30,18 +30,33 @@ const handleURLSubmit = event => {
           })
           .then(data => {
                 data.json().then(data => {
-                    messageContainer.classList.remove('hidden');
-                    errorContainer.classList.add('hidden');
-                    message.innerHTML = data.url;
-                    message.href = data.url;
+                    const { url } = data;
+                    if (url) {
+                        displaySuccessMsg(messageContainer, errorContainer);
+                        message.innerHTML = url;
+                        message.href = url;
+                    } else {
+                        displayErrorMsg(messageContainer, errorContainer);
+                    }
                 })
           })
           .catch((e)=> {
-            displayErrorMsg(messageContainer, errorContainer)
+            displayErrorMsg(messageContainer, errorContainer);
         });
     } else {
-        displayErrorMsg(messageContainer, errorContainer)
+        displayErrorMsg(messageContainer, errorContainer);
     }
+};
+
+
+/**
+ *  Hide error message container and show success message container
+ * @param {element} messageContainer 
+ * @param {element} errorContainer 
+ */
+const displaySuccessMsg = (messageContainer, errorContainer) => {
+    messageContainer.classList.remove('hidden');
+    errorContainer.classList.add('hidden');
 };
 
 /**

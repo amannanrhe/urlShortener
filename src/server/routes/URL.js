@@ -27,7 +27,7 @@ class DBController extends Base {
                 res.redirect(url);
             })
             .catch(e => {
-                console.log('error: ', e);
+                res.end();
             });
         });
     }
@@ -46,7 +46,7 @@ class DBController extends Base {
             })
             .catch(e =>{
                 console.log('error: ' + e);
-                res.end
+                res.end();
             });
         });
     }
